@@ -25,6 +25,7 @@ export default function RootLayout() {
     poppinsSemibold: require('../assets/fonts/poppins-semibold.ttf'),
     poppinsThin: require('../assets/fonts/poppins-thin.ttf'),
     poppinsItalic: require('../assets/fonts/poppins-italic.ttf'),
+    lebelleAuroreRegular: require('../assets/fonts/la-belle-aurore.regular.ttf'),
   });
 
   useEffect(() => {
@@ -41,13 +42,16 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === 'light' ? DarkTheme : DefaultTheme}>
       <SafeAreaView style={{ flex: 1 }}>
         <View
-          className="bg-[#1e293a] px-5"
+          className="bg-[#1e293a] px-5 py-5"
           style={{
-            shadowColor: '#06092e', // Shadow color
-            shadowOpacity: 0.25,    // Opacity of shadow
-            shadowOffset: { width: 0, height: 2 }, // Offset (x, y)
-            shadowRadius: 3.84,     // Shadow blur radius
-            elevation: 5,           // Android elevation for shadows
+            shadowColor: "#000",
+            shadowOffset: {
+            	width: 0,
+            	height: 2,
+            },
+            shadowOpacity: 0.23,
+            shadowRadius: 2.62,
+            elevation: 4,
           }}
         >
           <Text className="font-black text-[36px] text-blue-500">R</Text>
