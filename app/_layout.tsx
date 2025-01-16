@@ -10,6 +10,7 @@ import "../global.css";
 import 'react-native-reanimated';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { DarkTheme, DefaultTheme } from '@/constants/Colors';
+import FlashingAnimation from '@/components/animation/FlashingAnimation';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -42,19 +43,14 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === 'light' ? DarkTheme : DefaultTheme}>
       <SafeAreaView style={{ flex: 1 }}>
         <View
-          className="bg-[#1e293a] px-5 py-5"
+          className="bg-[#1e293a] px-5 py-5 flex flex-row gap-2 items-center"
           style={{
-            shadowColor: "#000",
-            shadowOffset: {
-            	width: 0,
-            	height: 2,
-            },
-            shadowOpacity: 0.23,
-            shadowRadius: 2.62,
-            elevation: 4,
+            elevation: 10, // Add elevation for Android
           }}
         >
+          <FlashingAnimation letter="<" />
           <Text className="font-black text-[36px] text-blue-500">R</Text>
+          <FlashingAnimation letter=">" />
         </View>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
